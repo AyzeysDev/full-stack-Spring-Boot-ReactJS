@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import ActivityService from '../../api/list/ActivityService.js'
-import Auth from './Auth.js'
 import moment from 'moment'
+import Auth from './Auth.js'
+import ActivityService from '../../api/list/ActivityService.js'
 
 
 class ActivityList extends Component {
@@ -17,21 +17,8 @@ class ActivityList extends Component {
         this.refreshActivity = this.refreshActivity.bind(this)
     }
 
-    componentWillUnmount() {
-        console.log('componentWillUnmount')
-    }
-
-    shouldComponentUpdate(nextProps, nextState) {
-        console.log('shouldComponentUpdate')
-        console.log(nextProps)
-        console.log(nextState)
-        return true
-    }
-
     componentDidMount() {
-        console.log('componentDidMount')
         this.refreshActivity();
-        console.log(this.state)
     }
 
     refreshActivity() {
@@ -49,7 +36,7 @@ class ActivityList extends Component {
         ActivityService.deleteActivity(username, id)
             .then(
                 response => {
-                    this.setState({ message: `Deletion of Activity ${id} is Successful` })
+                    this.setState({ message: `Activity ${id} is Successfully Deleted` })
                     this.refreshActivity()
                 }
             )
@@ -61,7 +48,6 @@ class ActivityList extends Component {
     }
 
     updateActivityClicked(id) {
-        console.log('update ' + id)
         this.props.history.push(`/list/${id}`)
     }
 
@@ -75,9 +61,9 @@ class ActivityList extends Component {
                     <table className="table">
                         <thead>
                             <tr>
-                                <th>Info</th>
+                                <th>Description</th>
                                 <th>Target Date</th>
-                                <th>Finished</th>
+                                <th>Is_Finished?</th>
                                 <th>Update</th>
                                 <th>Delete</th>
                             </tr>

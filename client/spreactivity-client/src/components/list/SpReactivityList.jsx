@@ -8,6 +8,7 @@ import FooterView from './FooterView.jsx';
 import Logout from './Logout.jsx';
 import LandingPage from './LandingPage.jsx';
 import Activity from './Activity.jsx';
+import ErrorValidator from './ErrorValidator';
 
 
 class SpReactivityList extends Component {

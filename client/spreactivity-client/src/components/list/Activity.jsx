@@ -4,7 +4,6 @@ import { Formik, Form, Field, ErrorMessage } from 'formik';
 import ActivityService from '../../api/list/ActivityService.js';
 import Auth from './Auth.js';
 
-//rename display content
 class Activity extends Component {
     constructor(props) {
         super(props)
@@ -77,7 +76,7 @@ class Activity extends Component {
 
         return (
             <div>
-                <h1>Activity</h1>
+                <h1>Activity List</h1>
                 <div className="container">
                     <Formik
                         initialValues={{ description, targetDate }}

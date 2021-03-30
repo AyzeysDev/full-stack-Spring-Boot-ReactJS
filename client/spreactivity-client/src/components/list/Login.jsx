@@ -7,14 +7,14 @@ class Login extends Component {
         super(props)
 
         this.state = {
-            username: 'ayzeys',
+            username: '',
             password: '',
             hasLoginFailed: false,
             showSuccessMessage: false
         }
      
         this.handleChange = this.handleChange.bind(this)
-        this.loginClicked = this.loginClick.bind(this)
+        this.loginClicked = this.loginClicked.bind(this)
     }
 
     handleChange(event) {
@@ -26,7 +26,7 @@ class Login extends Component {
         )
     }
 
-    loginClick() {
+    loginClicked() {
         Auth.executeJwtAuth(this.state.username, this.state.password)
             .then((response) => {
                 Auth.registerSuccessfulLoginForJwt(this.state.username, response.data.token)
@@ -46,7 +46,7 @@ class Login extends Component {
                     {this.state.showSuccessMessage && <div>You're In !</div>}                    
                     UserName: <input type="text" name="username" value={this.state.username} onChange={this.handleChange} />
                     Password: <input type="password" name="password" value={this.state.password} onChange={this.handleChange} />
-                    <button className="btn btn-success" onClick={this.loginClick}>Login</button>
+                    <button className="btn btn-success" onClick={this.loginClicked}>Login</button>
                 </div>
             </div>
         )

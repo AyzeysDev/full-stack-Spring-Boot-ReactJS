@@ -1,26 +1,26 @@
 import axios from 'axios'
-import { API_URL, JPA_API_URL } from '../../Constants'
+import { API_URL } from '../../Constants'
 
 class ActivityService {
 
   retrieveAllActivity(name) {
-        return axios.get(`${JPA_API_URL}/users/${name}/list`);
+        return axios.get(`${API_URL}/users/${name}/list`);
     }
 
     retrieveActivity(name, id) {
-        return axios.get(`${JPA_API_URL}/users/${name}/list/${id}`);
+        return axios.get(`${API_URL}/users/${name}/list/${id}`);
     }
 
     deleteActivity(name, id) {
-        return axios.delete(`${JPA_API_URL}/users/${name}/list/${id}`);
+        return axios.delete(`${API_URL}/users/${name}/list/${id}`);
     }
 
-    updateActivity(name, id, todo) {
-        return axios.put(`${JPA_API_URL}/users/${name}/list/${id}`, todo);
+    updateActivity(name, id, activity) {
+        return axios.put(`${API_URL}/users/${name}/list/${id}`, activity);
     }
 
-    createActivity(name, todo) {
-        return axios.post(`${JPA_API_URL}/users/${name}/list/`, todo);
+    createActivity(name, activity) {
+        return axios.post(`${API_URL}/users/${name}/list`, activity);
     }
 
 }
